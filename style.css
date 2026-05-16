@@ -318,6 +318,65 @@ body {
   font-style: italic;
   letter-spacing: 1px;
 }
+  
+/*__TICKER BAR__*/
+.ticker-bar {
+  grid-column: span;
+  background-color:#CC0000; /*red- urgent news color*/
+  display: flex;
+  align-items: center;
+  overflow: hidden;      /* hides text that goes outside the bar */ 
+  height: 36px;
+} 
+  
+ticket-label{
+  font-family: var(--font-ui);
+font-size: 11px;
+font-weight: bold;
+letter-spacing: 2px;
+color: white;
+background-color: #8B0000;  /* darker red for label background */
+  padding: 0 14px;
+height: 100%;
+display: flex;
+align-items: center;
+white-space: nowrap; /* prevents the label from wrapping to multiple lines */
+flex-shrink: 0; /* prevents the label from shrinking */
+}
+
+.ticker-text {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: white;
+   white-space: nowrap; /* keeps all text on one line */
+  padding-left: 100%; /* starts the text off-screen to the right */
+
+/* The animation */
+animation: ticker-scroll 30s linear infinite;
+}
+
+/* The keyframes for the ticker animation */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0); /* start at the initial position */
+  }
+  to {
+    transform: translateX(-100%); /* move left by 100% of its width */
+  }
+}
+
+/* Pause the animation when the user hovers over it */
+.ticker-bar:hover .ticker-text {
+  animation-play-state: paused;
+}
+
+
+
+
+
+
+
+
 
 /* ============================================
    TABLET — max-width: 768px
